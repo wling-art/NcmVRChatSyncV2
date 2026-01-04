@@ -13,7 +13,7 @@
 
 ## 使用教程
 
-1. 下载并运行 [NcmVRChatSync.exe](https://github.com/Null-K/NcmVRChatSync/releases)
+1. 下载并运行 [NcmVRChatSync.exe](https://github.com/wling-art/NcmVRChatSyncV2/releases)
 2. 使用软件内的按钮打开网易云音乐
     - 也可以手动在网易云快捷方式添加启动项 `--remote-debugging-port=9222`
 3. 点击开始同步

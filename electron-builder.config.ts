@@ -98,10 +98,7 @@ const config: Configuration = {
     // Electron 下载镜像配置
     electronDownload: {
         mirror: "https://npmmirror.com/mirrors/electron/"
-    },
-    // 发布配置
-    // 先留空，不自动上传
-    publish: []
+    }
 };
 
 export default config;

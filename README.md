@@ -1,18 +1,25 @@
-# Vue 3 + TypeScript + Vite
+# NCM VRChat Sync
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+一个简单的小软件，可用将你网易云（软件）内播放的歌曲使用 OSC 同步到 VRChat 聊天气泡中。
+支持同步基本所有属性内容，同时可以使用文本构建真实进度条。
 
-## Recommended IDE Setup
+支持同步的内容：
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- 歌曲名称
+- 歌曲作者
+- 播放进度
+- 当前歌词
+- 下句歌词
 
-## Type Support For `.vue` Imports in TS
+## 使用教程
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+1. 下载并运行 [NcmVRChatSync.exe](https://github.com/Null-K/NcmVRChatSync/releases)
+2. 使用软件内的按钮打开网易云音乐
+    - 也可以手动在网易云快捷方式添加启动项 `--remote-debugging-port=9222`
+3. 点击开始同步
+4. 打开 VRChat 游戏内 OSC 开关
+5. 完成
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+## VRC 交流群
 
-1. Disable the built-in TypeScript Extension
-    1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+1047423396

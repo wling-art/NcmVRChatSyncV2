@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+:root {
+    color-scheme: light dark;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html:not(.dark) {
+    background-color: #f5f5f5;
+}
+
+html.dark {
+    background-color: #242424;
+}

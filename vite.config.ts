@@ -51,7 +51,12 @@ export default defineConfig({
         minify: isBuildMode ? "esbuild" : false,
         sourcemap: !isBuildMode,
         rollupOptions: {
-            external: ["bufferutil", "utf-8-validate", "electron", ...Object.keys(pkg.dependencies)]
+            external: [
+                "bufferutil",
+                "utf-8-validate",
+                "electron",
+                ...Object.keys(pkg.dependencies).filter((dep) => dep !== "lodash-es")
+            ]
         }
     }
 });

@@ -23,12 +23,17 @@ function createWindow() {
             contextIsolation: true
         },
         width: 460,
-        height: 885
+        height: 885,
+        show: false
     });
 
     // Test active push message to Renderer-process.
     win.webContents.on("did-finish-load", () => {
         win?.webContents.send("main-process-message", new Date().toLocaleString());
+    });
+
+    win.on("ready-to-show", () => {
+        win?.show();
     });
 
     if (VITE_DEV_SERVER_URL) {

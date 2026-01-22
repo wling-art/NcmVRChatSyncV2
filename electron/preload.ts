@@ -23,7 +23,7 @@ contextBridge.exposeInMainWorld("ipcRenderer", {
 });
 
 export const api = {
-    selectDirectory: () => ipcRenderer.invoke("select-directory"),
+    selectDirectory: (): Promise<string | null> => ipcRenderer.invoke("select-directory"),
     launchNcm: (path: string) => ipcRenderer.invoke("launch-ncm", path),
     onStatusChange: (cb: (status: boolean) => void) => {
         ipcRenderer.on("ncm-status", (_, status) => cb(status));

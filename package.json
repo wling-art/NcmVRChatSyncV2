@@ -5,18 +5,21 @@
     "type": "module",
     "main": "dist-electron/main.js",
     "scripts": {
-        "dev": "vite",
-        "build": "vue-tsc && vite build && electron-builder --config electron-builder.config.ts",
+        "dev": "NODE_ENV=development vite",
+        "build": "NODE_ENV=production vue-tsc && vite build && electron-builder --config electron-builder.config.ts",
         "preview": "vite preview"
     },
     "dependencies": {
+        "bufferutil": "^4.1.0",
         "lodash-es": "^4.17.23",
-        "naive-ui": "^2.43.2",
-        "node-osc": "^11.2.2",
-        "vue": "^3.5.27",
-        "vue-router": "^4.6.4"
+        "utf-8-validate": "^6.0.6",
+        "ws": "^8.19.0"
     },
     "devDependencies": {
+        "node-osc": "^11.2.2",
+        "vue": "^3.5.27",
+        "vue-router": "^4.6.4",
+        "naive-ui": "^2.43.2",
         "@tailwindcss/vite": "^4.1.18",
         "@types/ws": "^8.18.1",
         "@typescript-eslint/eslint-plugin": "^8.53.1",
@@ -39,7 +42,6 @@
         "vite-plugin-electron": "^0.29.0",
         "vite-plugin-electron-renderer": "^0.14.6",
         "vue-tsc": "^3.2.2",
-        "ws": "^8.19.0",
         "zod": "^4.3.5"
     }
 }

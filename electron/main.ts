@@ -73,3 +73,5 @@ app.whenReady().then(() => {
     Menu.setApplicationMenu(null);
     createWindow();
 });
+
+app.commandLine.appendSwitch("lang", "en-US");

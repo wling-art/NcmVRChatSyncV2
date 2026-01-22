@@ -1,7 +1,7 @@
 import { app } from "electron";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
 import { writeFile } from "fs/promises";
-import { merge } from "lodash";
+import { merge } from "lodash-es";
 import { join } from "path";
 import { z } from "zod";
 

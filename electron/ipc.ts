@@ -26,8 +26,8 @@ export function registerIpc(win: BrowserWindow) {
         return configManager.get();
     });
 
-    ipcMain.handle("save-settings", (_, settings: Partial<Settings>) => {
-        configManager.save(settings);
+    ipcMain.handle("save-settings", async (_, settings: Partial<Settings>) => {
+        await configManager.save(settings);
         return configManager.get();
     });
 

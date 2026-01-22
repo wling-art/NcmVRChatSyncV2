@@ -16,7 +16,7 @@ export async function selectDirectory(win: BrowserWindow) {
 
     if (selectedPath) {
         try {
-            configManager.save({ ncmPath: selectedPath });
+            await configManager.save({ ncmPath: selectedPath });
             console.log("[Dialog] Saved NCM path to config:", selectedPath);
         } catch (error) {
             console.error("[Dialog] Failed to save NCM path:", error);

@@ -1,8 +1,9 @@
 import { app } from "electron";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
+import { writeFile } from "fs/promises";
+import { merge } from "lodash";
 import { join } from "path";
 import { z } from "zod";
-import { merge } from "lodash";
 
 // 配置 schema 带默认值
 const SettingsSchema = z.object({
@@ -48,11 +49,12 @@ const SettingsSchema = z.object({
 export type Settings = z.infer<typeof SettingsSchema>;
 
 export class ConfigManager {
+    private static instance: ConfigManager | null = null;
     private configDir: string;
     private configPath: string;
     private settings: Settings;
 
-    constructor() {
+    private constructor() {
         console.log("[Config] Initializing ConfigManager");
         this.configDir = join(app.getPath("userData"), "config");
         this.configPath = join(this.configDir, "settings.json");
@@ -62,6 +64,13 @@ export class ConfigManager {
         }
 
         this.settings = this.load();
+    }
+
+    public static getInstance(): ConfigManager {
+        if (this.instance === null) {
+            this.instance = new ConfigManager();
+        }
+        return this.instance;
     }
 
     private load(): Settings {
@@ -88,14 +97,14 @@ export class ConfigManager {
         return defaultSettings;
     }
 
-    public save(settings: Partial<Settings>): void {
+    public async save(settings: Partial<Settings>): Promise<void> {
         try {
             // 合并
             const merged = merge(this.settings, settings);
             // 校验
             const validated = SettingsSchema.parse(merged);
             // 保存
-            writeFileSync(this.configPath, JSON.stringify(validated, null, 2), "utf-8");
+            await writeFile(this.configPath, JSON.stringify(validated, null, 2), "utf-8");
             this.settings = validated;
             console.log("[Config] Settings saved successfully");
         } catch (error) {
@@ -109,4 +118,4 @@ export class ConfigManager {
     }
 }
 
-export const configManager = new ConfigManager();
+export const configManager = ConfigManager.getInstance();
